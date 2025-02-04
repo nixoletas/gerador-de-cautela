@@ -1,0 +1,386 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1e1e2f;
+    color: #f0f0f5;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    background-color: #00d4b0;
+    color: #1e1e2f;
+    padding: 1rem 0;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    font-size: 28px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+h4, h2, #total-cautelas {
+    margin: 0.4rem;
+    text-align: center;
+}
+
+.nova-cautela-container, .center-filter {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+/* Fundo escuro para foco no modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+}
+
+/* Estrutura do modal */
+.modal-content {
+    background-color: #282c34;
+    padding: 1rem;
+    justify-content: center;
+    width: 100%;
+    max-width: 700px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Animação de entrada */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Botão de fechar */
+.fechar {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#abrirModal {
+    padding: 1rem;
+    background-color: #00c295;
+    margin: 0.5rem;
+    border-radius: 8px;
+    border: none;
+    color: #f0f0f5;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 200ms;
+}
+
+#abrirModal:hover {
+    padding: 1rem;
+    background-color: #00775b;
+    margin: 0.5rem;
+    border-radius: 8px;
+    color: #f0f0f5;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 200ms;
+}
+
+.fechar:hover {
+    color: #ff4c4c;
+}
+
+/* Labels */
+#cautela-form label {
+    font-size: 8px;
+    color: #bbb;
+}
+
+#cautela-form {
+    display: flex;
+    padding: 2rem;
+    gap: 0.5rem;
+}
+
+.cautela-item {
+    padding: 1rem;
+    border: 1px solid #afc7c1;
+    border-radius: 0.5rem;
+    margin: 1rem;
+}
+
+/* Inputs estilizados */
+#cautela-form input {
+    width: auto;
+    padding: 8px;
+    border: 2px solid #444;
+    border-radius: 8px;
+    background-color: #1e1e2f;
+    color: #f0f0f5;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+#filtro {
+    width: auto;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    align-self: center;
+    padding: 8px;
+    border: 2px solid #444;
+    border-radius: 8px;
+    background-color: #1e1e2f;
+    color: #f0f0f5;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+#cautela-form input:focus {
+    border-color: #00d4b0;
+    outline: none;
+}
+
+.line {
+    display: flex;
+    gap: 1rem; /* Espaço entre os inputs */
+}
+
+.line input {
+    flex: 1; /* Distribui o espaço igualmente */
+}
+
+/* Botão de adicionar */
+#adicionar-item {
+    
+    width: 6rem;
+    padding: 0.2rem;
+    background-color: #00d4b0;
+    color: #1e1e2f;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#confirmar-cautela {
+    
+    width: 10rem;
+    padding: 0.2rem;
+    background-color: #0b438b;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#cautela-form button:hover {
+    background-color: #00c295;
+    transform: scale(1.05);
+}
+
+/* Grid para inputs de itens */
+.item-form {
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.4rem;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .modal-content {
+        width: 95%;
+        padding: 1.5rem;
+    }
+    .item-form {
+        grid-template-columns: 1fr;
+    }
+}
+
+.fechar {
+    float: right;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+#cautela-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 700px;
+}
+
+.dados-cautela {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Janela de itens com overflow */
+.dados-itens {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#itens-container {
+    height: 6rem;
+    max-height: 6rem;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 10px;
+    border: 2px solid #444;
+    border-radius: 8px;
+    background-color: #1e1e2f;
+}
+
+/* Estilo para cada item adicionado */
+.item-adicionado {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 10px;
+    border-bottom: 1px solid #444;
+}
+
+.item-adicionado:last-child {
+    border-bottom: none;
+}
+
+.item-adicionado p {
+    margin: 0;
+    font-size: 14px;
+    color: #f0f0f5;
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.apagar {
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 0.4rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: all 200ms;
+    &:hover {
+        background-color: #c92d2d;
+    } 
+}
+
+.gerar-pdf, .recibo-pdf {
+    background-color: #0b438b;
+    color: white;
+    border: none;
+    border-radius: 0.4rem;
+    padding: 0.5rem; 
+    cursor: pointer; 
+    transition: all 200ms;
+    &:hover {
+        background-color: #093268;
+    } 
+}
+
+.toast {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    background-color: #555563; /* Verde para sucesso */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.toast.error {
+    background-color: #F44336; /* Vermelho para erro */
+}
+
+.toast.fade-out {
+    opacity: 0;
+}
+
+.toast-btn {
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.toast-btn.yes {
+    background-color: #28a745;
+    padding: 1rem;
+    color: white;
+    &:hover {
+        background-color: #134b20; 
+    }
+}
+
+.toast-btn.no {
+    background-color: #dc3545;
+    padding: 1rem;
+    color: white;
+    &:hover {
+        background-color: #751a23;
+    }
+}
+
+.remover {
+    background-color: rgb(219, 63, 36);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.4rem;
+}
+
+
+.todas-cautelas {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.cautelas {
+    flex: 1;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de cautela</title>
+    <!-- Ícone padrão para navegadores -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <script src="./js/jspdf.js"></script>
+    <link rel="stylesheet" href='style.css'>
+</head>
+<body>
+    <h1>Gerador de Cautela</h1>
+            
+        <form id="cautela-form">
+            <div class="line">
+            <input type="text" id="task-usuario" placeholder="P/G Nome" required>
+            <input type="text" id="task-phone" placeholder="Celular (apenas números)" required>
+            </div>
+            <div class="line">
+            <input type="text" id="task-cia" placeholder="SU/Seç" required>
+            <input type="text" id="task-responsavel" placeholder="responsável pela cautela" required>
+            </div>
+            <div class="line">
+            <input type="date" id="task-saida" placeholder="data de saída" required>
+            <input type="text" id="task-motivo" placeholder="motivo" required>
+            </div>
+            
+            <div class="item-form">
+                <input type="text" id="item-tipo" placeholder="Tipo do item">
+                
+                <input type="text" id="item-descricao" placeholder="Descrição do item">
+                
+                <input type="text" id="item-condicao" placeholder="Condições do item">
+                <input type="text" id="item-nrserie" placeholder="Nr de série">
+                
+                <input type="text" id="item-nrpatr" placeholder="Nr de Patrimônio (apenas os 5 finais)">
+                <div class="line">
+                    <button type="button" id="adicionar-item" onclick="adicionarItem()">Adicionar Item</button>
+                    <button type="button" id="confirmar-cautela" onclick="adicionarCautela()">Criar Cautela</button>
+                </div>
+            </div>
+            <h2>Itens da Cautela</h2>
+            
+            <div id="itens-container">
+                <!-- Os itens adicionados aparecerão aqui -->
+            </div>
+        </div>
+        </div>
+        </form>
+        </div>        
+    </div>
+    <script src="./js/pdf.js"></script>
+    <script src="./js/phone.js"></script>
+    <script src="./js/patrimonio.js"></script>
+    <script src="./js/script.js"></script>
+</body>
+</html>
