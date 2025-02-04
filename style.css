@@ -126,7 +126,7 @@ h4, h2, #total-cautelas {
 
 /* Labels */
 label {
-    font-size: 16px;
+    font-size: small;
     align-content: center;
 }
 
@@ -183,12 +183,37 @@ h3 {
 }
 
 .line {
-    display: flex;
-    gap: 1rem; /* Espaço entre os inputs */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+}
+
+.line label {
+    flex: 1; /* Faz os labels crescerem */
+}
+
+.line input {
+    flex: 1; /* Permite que os inputs ocupem mais espaço */
+    width: 100%; /* Garante que preencham seu container */
 }
 
 .line input {
     flex: 1; /* Distribui o espaço igualmente */
+}
+
+.line-date {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.line-date label {
+    flex: 1; /* Faz os labels crescerem */
+}
+
+.line-date input {
+    flex: 1; /* Permite que os inputs ocupem mais espaço */
+    width: 100%; /* Garante que preencham seu container */
 }
 
 /* Botão de adicionar */
