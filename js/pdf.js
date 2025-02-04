@@ -54,7 +54,7 @@ async function gerarPDF(dadosCautela) {
         y += 15;
         doc.setFontSize(14);
         doc.setFont("helvetica", "normal");
-        centralizarTexto(`SEÇÃO DE TECNOLOGIA DA INFORMAÇÃO`, y);
+        centralizarTexto(`${cautela.cautelanteSU}`, y);
         
         y += 10;
         doc.setFontSize(16);
@@ -66,7 +66,7 @@ async function gerarPDF(dadosCautela) {
         // Caixa de borda
         doc.setDrawColor(0);
         doc.setLineWidth(0.5);
-        doc.rect(10, y, 190, 40);
+        doc.rect(10, y, 190, 50);
 
         y += 10;
         chaveX = 50;
@@ -74,12 +74,38 @@ async function gerarPDF(dadosCautela) {
         // Dados da cautela dentro da caixa
         doc.setFont("helvetica", "bold");
         doc.setFontSize(12);
-        doc.text(`Nome:`, chaveX, y);
+        doc.text(`P/G Nome:`, chaveX, y);
         doc.setFont("helvetica", "normal");
-        doc.text(`${dadosCautela.usuario}`, valorX, y);
+        doc.text(`${cautela.pgnome}`, valorX, y);
         doc.setFont("helvetica", "bold");
-        y += 27;
-        
+        y += 7;
+        doc.text(`Idt:`, chaveX, y);
+        doc.setFont("helvetica", "normal");
+        doc.text(`${cautela.idt}`, valorX, y);
+        doc.setFont("helvetica", "bold");
+        y += 7;
+        doc.text(`CPF:`, chaveX, y);
+        doc.setFont("helvetica", "normal");
+        doc.text(`${cautela.cpf}`, valorX, y);
+        doc.setFont("helvetica", "bold");
+        y += 7;
+        doc.text(`Celular:`, chaveX, y);
+        doc.setFont("helvetica", "normal");
+        doc.text(`${cautela.phone}`, valorX, y);
+        doc.setFont("helvetica", "bold");
+        y += 7;
+        doc.text(`SU/Seç:`, chaveX, y);
+        doc.setFont("helvetica", "normal");
+        doc.text(`${cautela.cia}`, valorX, y);
+        doc.setFont("helvetica", "bold");
+        y += 7;
+        doc.text(`Motivo da cautela:`, chaveX, y);
+        doc.setFont("helvetica", "normal");
+        doc.text(`${cautela.motivo}`, valorX, y);
+        doc.setFont("helvetica", "bold");
+        y += 7;
+        y += 20;
+
         doc.setFont("helvetica", "bold");
         const descricao = "Itens da Cautela";
         const descricaoWidth = doc.getTextWidth(descricao); // Largura do texto

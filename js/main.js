@@ -25,41 +25,41 @@ function adicionarItem() {
     const condicao = document.getElementById("item-condicao").value;
     const nrserie = document.getElementById("item-nrserie").value;
     const nrpatr = document.getElementById("item-nrpatr").value;
-    
+
     if (!tipo || !descricao) {
         alert("Preencha pelo menos o tipo e a descrição do item.");
         return;
     }
-    
+
     const novoItem = { tipo, descricao, condicao, nrserie, nrpatr };
     itensCautela.push(novoItem);
-    
+
     atualizarListaItens();
-    
-    // Limpar campos
-    document.getElementById("item-condicao").value = "";
-    document.getElementById("item-nrserie").value = "";
-    document.getElementById("item-nrpatr").value = "";
 }
 
 function atualizarListaItens() {
     const container = document.getElementById("itens-container");
-    container.innerHTML = "";
-    
+    container.innerHTML = ""; // Limpa antes de renderizar novamente
+
     itensCautela.forEach((item, index) => {
         const div = document.createElement("div");
         div.innerHTML = `
             <p>${item.tipo} - ${item.descricao} (${item.condicao}) 
-            <button class="remover" onclick="removerItem(${index})">Remover</button></p>
+            <button class="remover" data-index="${index}">Remover</button></p>
         `;
         container.appendChild(div);
     });
 }
 
-function removerItem(index) {
-    itensCautela.splice(index, 1);
-    atualizarListaItens();
-}
+document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("itens-container").addEventListener("click", function(event) {
+        if (event.target.classList.contains("remover")) {
+            const index = Number(event.target.getAttribute("data-index")); // Converte para número
+            itensCautela.splice(index, 1);
+            atualizarListaItens();
+        }
+    });
+});
 
 function gerarCautela() {
     const cautelanteSU = document.getElementById("cautelante-subunidade").value;
@@ -84,7 +84,6 @@ function gerarCautela() {
         return;
     }
 
-    // Objeto com os dados da cautela
     const dadosCautela = {
         cautelanteSU,
         cautelantePgnome,
@@ -99,7 +98,7 @@ function gerarCautela() {
         itens: itensCautela
     };
 
-    console.log(dadosCautela)
+    console.log(dadosCautela);
 
     gerarPDF(dadosCautela);
 }
