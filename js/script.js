@@ -61,13 +61,18 @@ function removerItem(index) {
     atualizarListaItens();
 }
 
-function adicionarCautela() {
-    const usuario = document.getElementById("task-usuario").value;
-    const phone = document.getElementById("task-phone").value;
-    const cia = document.getElementById("task-cia").value;
-    const responsavel = document.getElementById("task-responsavel").value;
-    const datasaida = document.getElementById("task-saida").value;
+function gerarCautela() {
+    const cautelanteSU = document.getElementById("cautelante-subunidade").value;
+    const cautelantePgnome = document.getElementById("cautelante-pgnome").value;
+
+    const pgnome = document.getElementById("pgnome").value;
+    const idt = document.getElementById("idt").value;
+    const cpf = document.getElementById("cpf").value;
+    const phone = document.getElementById("phone").value;
+    const cia = document.getElementById("cia").value;
     const motivo = document.getElementById("task-motivo").value;
+    const saida = document.getElementById("saida").value;
+    const devolucao = document.getElementById("devolucao").value;
 
     if (!usuario || !phone || !cia || !responsavel || !datasaida || !motivo) {
         alert("Preencha todos os campos antes de criar a cautela.");

@@ -110,15 +110,18 @@ h4, h2, #total-cautelas {
 }
 
 /* Labels */
-#cautela-form label {
-    font-size: 8px;
-    color: #bbb;
+label {
+    font-size: 16px;
+    align-content: center;
 }
 
 #cautela-form {
     display: flex;
-    padding: 2rem;
     gap: 0.5rem;
+}
+
+h3 {
+    margin-bottom: 0px;
 }
 
 .cautela-item {
@@ -209,7 +212,6 @@ h4, h2, #total-cautelas {
 
 /* Grid para inputs de itens */
 .item-form {
-    margin-top: 1rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.4rem;
@@ -236,7 +238,16 @@ h4, h2, #total-cautelas {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 700px;
+    max-width: 800px;
+    width: 85%;
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.adicionar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .dados-cautela {

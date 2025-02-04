@@ -54,7 +54,7 @@ async function gerarPDF(dadosCautela) {
         y += 15;
         doc.setFontSize(14);
         doc.setFont("helvetica", "normal");
-        centralizarTexto("SEÇÃO DE TECNOLOGIA DA INFORMAÇÃO", y);
+        centralizarTexto(`SEÇÃO DE TECNOLOGIA DA INFORMAÇÃO`, y);
         
         y += 10;
         doc.setFontSize(16);
