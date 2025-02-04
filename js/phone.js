@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const phoneInput = document.getElementById("task-phone");
+    const phoneInput = document.getElementById("phone");
 
     phoneInput.addEventListener("input", function (event) {
         let value = phoneInput.value.replace(/\D/g, ""); // Remove tudo que não for número

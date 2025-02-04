@@ -70,12 +70,12 @@ function gerarCautela() {
     const cpf = document.getElementById("cpf").value;
     const phone = document.getElementById("phone").value;
     const cia = document.getElementById("cia").value;
-    const motivo = document.getElementById("task-motivo").value;
-    const saida = document.getElementById("saida").value;
-    const devolucao = document.getElementById("devolucao").value;
+    const motivo = document.getElementById("motivo").value;
+    const dataSaida = document.getElementById("saida").value;
+    const prevDevolucao = document.getElementById("devolucao").value;
 
-    if (!usuario || !phone || !cia || !responsavel || !datasaida || !motivo) {
-        alert("Preencha todos os campos antes de criar a cautela.");
+    if (!pgnome || !phone || !cia || !cautelanteSU || !cautelantePgnome || !dataSaida || !motivo) {
+        alert("Preencha todos os campos obrigatórios antes de criar a cautela.");
         return;
     }
 
@@ -86,17 +86,20 @@ function gerarCautela() {
 
     // Objeto com os dados da cautela
     const dadosCautela = {
-        usuario,
+        cautelanteSU,
+        cautelantePgnome,
+        pgnome,
+        idt,
+        cpf,
         phone,
         cia,
-        responsavel,
-        datasaida,
         motivo,
+        dataSaida,
+        prevDevolucao,
         itens: itensCautela
     };
 
     console.log(dadosCautela)
 
-    // Chama a função de geração de PDF
     gerarPDF(dadosCautela);
 }
