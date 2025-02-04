@@ -122,7 +122,7 @@ async function gerarPDF(dadosCautela) {
             doc.text(`- ${item.tipo} ${item.descricao} (+ ${item.componentes})`, 15, y);
             y += 5;
             doc.setFontSize(10);
-            doc.text(`  ${item.condicao} (${item.nrpatr})`, 15, y);
+            doc.text(`  Nr Série: ${item.nrserie} | Nr Patr: ${item.nrpatr} (*Obs: ${item.condicao})`, 15, y);
             y += 10;
         });
 
