@@ -8,59 +8,112 @@
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script src="./js/jspdf.js"></script>
     <link rel="stylesheet" href='style.css'>
+    <style>
+        /* Adiciona um asterisco vermelho aos campos obrigatórios */
+        label.required::after {
+            content: " *";
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <h1>Gerador de Cautela</h1>
             
-        <form id="cautela-form">
-            <h3>Seus dados</h3>
-            <div class="line">
-                <input type="text" id="cautelante-subunidade" placeholder="SU/Seç por extenso" required>
-                <input type="text" id="cautelante-subunidadeAbrev" placeholder="SU/Seç abreviatura" required>
-                <input type="text" id="cautelante-pgnome" placeholder="Responsável pela cautela" required>
+    <form id="cautela-form">
+        <h3>Seus dados</h3>
+        <div class="line">
+            <div class="input-div">
+                <label for="cautelante-subunidade" class="required">Cia/Seç por extenso</label>
+                <input type="text" id="cautelante-subunidade" required>
             </div>
-            <h3>Dados de quem cautela</h3>
-            <div class="line">
-                <input type="text" id="pgnome" placeholder="P/G Nome" required>
-                <input type="text" id="idt" placeholder="Identidade" oninput="formatarIdentidade(this)">
-                <input type="text" id="cpf" placeholder="CPF" oninput="formatarCPF(this)">
+            <div class="input-div">
+                <label for="cautelante-subunidadeAbrev" class="required">Cia/Seç abreviatura</label>
+                <input type="text" id="cautelante-subunidadeAbrev" required>
+            </div>
+            <div class="input-div">
+                <label for="cautelante-pgnome" class="required">Responsável pela cautela</label>
+                <input type="text" id="cautelante-pgnome" required>
+            </div>
+        </div>
 
+        <h3>Dados de quem cautela</h3>
+        <div class="line">
+            <div class="input-div">
+                <label for="pgnome" class="required">P/G Nome</label>
+                <input type="text" id="pgnome" required>
             </div>
-            <div class="line">
-                <input type="text" id="phone" placeholder="Celular (somente números)">
-                <input type="text" id="cia" placeholder="SU/Seç" required>
-                <input type="text" id="motivo" placeholder="Motivo da cautela" required>
+            <div class="input-div">
+                <label for="idt">Identidade</label>
+                <input type="text" id="idt" oninput="formatarIdentidade(this)">
             </div>
-            <div class="line">
-                <label for="saida">Data da cautela</label>
-                <input type="date" id="saida" placeholder="data de saída" required>
-                <label for="devolucao">Previsão de devolução</label>
-                <input type="date" id="devolucao" placeholder="previsão" required>
-            </div>
-            
-            <h3>Itens da cautela</h3>
-            <div class="item-form">
-                <input type="text" id="item-tipo" placeholder="Tipo do item (ex: Notebook)">
-                
-                <input type="text" id="item-descricao" placeholder="Descrição do item (ex: marca: Dell 15')">
-                
-                <input type="text" id="item-condicao" placeholder="Condições do item">
-                <input type="text" id="item-componentes" placeholder="Componentes do item">
-                
-                <input type="text" id="item-nrserie" placeholder="Nr de série">
-                <input type="text" id="item-nrpatr" placeholder="Nr de Patrimônio (apenas os 5 finais)">
-            </div>
-            <div class="line adicionar">
-                <button type="button" id="adicionar-item" onclick="adicionarItem()">Adicionar Item</button>
-                <button type="button" id="confirmar-cautela" onclick="gerarCautela()">Criar Cautela</button>
-            </div>
-            <div id="itens-container">
+            <div class="input-div">
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" oninput="formatarCPF(this)">
             </div>
         </div>
+
+        <div class="line">
+            <div class="input-div">
+                <label for="phone">Celular (somente números)</label>
+                <input type="text" id="phone">
+            </div>
+            <div class="input-div">
+                <label for="cia" class="required">Cia/Seç</label>
+                <input type="text" id="cia" required>
+            </div>
+            <div class="input-div">
+                <label for="motivo" class="required">Motivo da cautela</label>
+                <input type="text" id="motivo" required>
+            </div>
         </div>
-        </form>
-        </div>        
-    </div>
+
+        <div class="line">
+            <div class="input-div">
+                <label for="saida" class="required">Data da cautela</label>
+                <input type="date" id="saida" required>
+            </div>
+            <div class="input-div">
+                <label for="devolucao" class="required">Previsão de devolução</label>
+                <input type="date" id="devolucao" required>
+            </div>
+        </div>
+        
+        <h3>Itens da cautela</h3>
+        <div class="item-form">
+            <div class="input-div">
+                <label for="item-tipo">Tipo do item</label>
+                <input type="text" id="item-tipo" placeholder="Ex: Notebook">
+            </div>
+            <div class="input-div">
+                <label for="item-descricao">Descrição do item</label>
+                <input type="text" id="item-descricao" placeholder="Ex: marca: Dell 15'">
+            </div>
+            <div class="input-div">
+                <label for="item-condicao">Condições do item</label>
+                <input type="text" id="item-condicao">
+            </div>
+            <div class="input-div">
+                <label for="item-componentes">Componentes do item</label>
+                <input type="text" id="item-componentes">
+            </div>
+            <div class="input-div">
+                <label for="item-nrserie">Nr de série</label>
+                <input type="text" id="item-nrserie">
+            </div>
+            <div class="input-div">
+                <label for="item-nrpatr">Nr de Patrimônio (apenas os 5 finais)</label>
+                <input type="text" id="item-nrpatr">
+            </div>
+        </div>
+
+        <div class="line adicionar">
+            <button type="button" id="adicionar-item" onclick="adicionarItem()">Adicionar Item</button>
+            <button type="button" id="confirmar-cautela" onclick="gerarCautela()">Criar Cautela</button>
+        </div>
+        
+        <div id="itens-container"></div>
+    </form>
+
     <script src="./js/pdf.js"></script>
     <script src="./js/utils.js"></script>
     <script src="./js/main.js"></script>

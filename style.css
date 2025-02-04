@@ -407,6 +407,29 @@ h3 {
     flex-direction: row;
 }
 
+.input-div {
+    width: ;
+    display: flex;
+    flex-direction: column;
+}
+
 .cautelas {
     flex: 1;
+}
+
+.required {
+    font-size: small;
+}
+
+/* Adiciona um asterisco vermelho aos campos obrigatórios */
+input[required]::before {
+    content: "*";
+    color: red;
+    margin-right: 5px;
+}
+
+/* Alternativa para melhor compatibilidade */
+label.required::after {
+    content: " *";
+    color: red;
 }
