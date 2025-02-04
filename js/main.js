@@ -1,27 +1,12 @@
 const { jsPDF } = window.jspdf;
 const ip = "localhost";
 
-function formatDateToBR(dateString) {
-    const date = new Date(dateString);
-    const day = ("0" + date.getDate()).slice(-2);
-    const month = ("0" + (date.getMonth() + 1)).slice(-2);
-    const year = date.getFullYear();
-    return `${day}/${month}/${year}`;
-}
-
-function toUpper(input) {
-    input.value = input.value.toUpperCase();
-}
-
-document.querySelectorAll('input').forEach(input => {
-    input.addEventListener('input', () => toUpper(input));
-});
-
 let itensCautela = [];
 
 function adicionarItem() {
     const tipo = document.getElementById("item-tipo").value;
     const descricao = document.getElementById("item-descricao").value;
+    const componentes = document.getElementById("item-componentes").value;
     const condicao = document.getElementById("item-condicao").value;
     const nrserie = document.getElementById("item-nrserie").value;
     const nrpatr = document.getElementById("item-nrpatr").value;
@@ -31,7 +16,7 @@ function adicionarItem() {
         return;
     }
 
-    const novoItem = { tipo, descricao, condicao, nrserie, nrpatr };
+    const novoItem = { tipo, descricao, componentes, condicao, nrserie, nrpatr };
     itensCautela.push(novoItem);
 
     atualizarListaItens();
@@ -39,12 +24,13 @@ function adicionarItem() {
 
 function atualizarListaItens() {
     const container = document.getElementById("itens-container");
-    container.innerHTML = ""; // Limpa antes de renderizar novamente
+    container.innerHTML = "";
 
     itensCautela.forEach((item, index) => {
         const div = document.createElement("div");
         div.innerHTML = `
-            <p>${item.tipo} - ${item.descricao} (${item.condicao}) 
+            <p>${item.tipo} - ${item.descricao} (${item.componentes}) *${item.condicao}</p>
+            <p class="p-item">S/N:${item.nrserie} / Nr Patr:${item.nrpatr}
             <button class="remover" data-index="${index}">Remover</button></p>
         `;
         container.appendChild(div);
@@ -63,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function gerarCautela() {
     const cautelanteSU = document.getElementById("cautelante-subunidade").value;
+    const cautelanteSUAbrev = document.getElementById("cautelante-subunidadeAbrev").value;
     const cautelantePgnome = document.getElementById("cautelante-pgnome").value;
 
     const pgnome = document.getElementById("pgnome").value;
@@ -86,6 +73,7 @@ function gerarCautela() {
 
     const dadosCautela = {
         cautelanteSU,
+        cautelanteSUAbrev,
         cautelantePgnome,
         pgnome,
         idt,

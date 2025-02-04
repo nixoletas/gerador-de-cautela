@@ -22,6 +22,15 @@ h1 {
     text-transform: uppercase;
 }
 
+.p-item {
+    font-size: small;
+    margin: 0;
+}
+
+p {
+    margin: 0;
+}
+
 h4, h2, #total-cautelas {
     margin: 0.4rem;
     text-align: center;

@@ -1,3 +1,19 @@
+function formatDateToBR(dateString) {
+    const date = new Date(dateString);
+    const day = ("0" + date.getDate()).slice(-2);
+    const month = ("0" + (date.getMonth() + 1)).slice(-2);
+    const year = date.getFullYear();
+    return `${day}/${month}/${year}`;
+}
+
+function toUpper(input) {
+    input.value = input.value.toUpperCase();
+}
+
+document.querySelectorAll('input').forEach(input => {
+    input.addEventListener('input', () => toUpper(input));
+});
+
 function formatarIdentidade(input) {
     let valor = input.value.replace(/\D/g, ""); // Remove tudo que não for número    
     if (valor.length > 9) valor = valor.substring(0, 10); // Limita a 10 caracteres (9 números + 1 traço)

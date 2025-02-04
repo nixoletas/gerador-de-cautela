@@ -119,7 +119,7 @@ async function gerarPDF(dadosCautela) {
         itens.forEach((item) => {
             
             doc.setFontSize(12);
-            doc.text(`- ${item.tipo} ${item.descricao}`, 15, y);
+            doc.text(`- ${item.tipo} ${item.descricao} (+ ${item.componentes})`, 15, y);
             y += 5;
             doc.setFontSize(10);
             doc.text(`  ${item.condicao} (${item.nrpatr})`, 15, y);
@@ -130,8 +130,8 @@ async function gerarPDF(dadosCautela) {
 
         doc.setFont("helvetica", "bold");
         const options = { day: "numeric", month: "long", year: "numeric" };
-        console.log(cautela.datasaida);
-        const dataSaida = new Date(cautela.datasaida);
+        console.log(cautela.dataSaida);
+        const dataSaida = new Date(cautela.dataSaida);
 
         // Ajusta a data para o horário local
         dataSaida.setMinutes(dataSaida.getMinutes() + dataSaida.getTimezoneOffset());
@@ -148,10 +148,10 @@ async function gerarPDF(dadosCautela) {
 
         // Campos de assinatura
         doc.line(20, y + 20, 90, y + 20);
-        doc.text(`${cautela.usuario} (${cautela.phone})`, 30, y + 25);
+        doc.text(`${cautela.pgnome} (${cautela.cpf})`, 30, y + 25);
         doc.line(120, y + 20, 190, y + 20);
-        doc.text(`${cautela.responsavel}`, 130, y + 25);
+        doc.text(`${cautela.cautelantePgnome}`, 130, y + 25);
 
-        doc.save(`${cautela.id} Cautela ${cautela.usuario}`);
+        doc.save(`Cautela-${cautela.cautelanteSUAbrev}-${cautela.pgnome}`);
         // doc.save(`${cautela.id} Cautela ${cautela.usuario}`);
 }
