@@ -29,9 +29,11 @@ function atualizarListaItens() {
     itensCautela.forEach((item, index) => {
         const div = document.createElement("div");
         div.innerHTML = `
+            <div class="div-item">
             <p>${item.tipo} - ${item.descricao} (${item.componentes}) *${item.condicao}</p>
             <p class="p-item">S/N:${item.nrserie} / Nr Patr:${item.nrpatr}
             <button class="remover" data-index="${index}">Remover</button></p>
+            </div>
         `;
         container.appendChild(div);
     });

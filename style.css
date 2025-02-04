@@ -22,6 +22,11 @@ h1 {
     text-transform: uppercase;
 }
 
+.div-item {
+    border: 1px solid #5a6272;
+    border-radius: 0.5rem;
+}
+
 .p-item {
     font-size: small;
     margin: 0;
