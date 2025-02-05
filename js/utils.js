@@ -76,3 +76,19 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const qtdeInput = document.getElementById("item-qtde");
+
+    qtdeInput.addEventListener("input", function (event) {
+        let value = qtdeInput.value.replace(/\D/g, ""); // Remove tudo que não for número
+        
+        if (value.length > 4) {
+            value = value.slice(0, 4); // Limita ao tamanho de um celular com DDD
+        }        
+        
+        formattedValue = value;
+
+        qtdeInput.value = formattedValue;
+    });
+});

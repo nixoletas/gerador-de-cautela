@@ -10,13 +10,14 @@ function adicionarItem() {
     const condicao = document.getElementById("item-condicao").value;
     const nrserie = document.getElementById("item-nrserie").value;
     const nrpatr = document.getElementById("item-nrpatr").value;
+    const qtde = document.getElementById("item-qtde").value;
 
     if (!tipo || !descricao) {
         alert("Preencha pelo menos o tipo e a descrição do item.");
         return;
     }
 
-    const novoItem = { tipo, descricao, componentes, condicao, nrserie, nrpatr };
+    const novoItem = { tipo, descricao, qtde, componentes, condicao, nrserie, nrpatr };
     itensCautela.push(novoItem);
 
     atualizarListaItens();
@@ -31,7 +32,7 @@ function atualizarListaItens() {
         div.innerHTML = `
             <div class="div-item">
             <p>${item.tipo} - ${item.descricao} (${item.componentes}) *${item.condicao}</p>
-            <p class="p-item">S/N:${item.nrserie} / Nr Patr:${item.nrpatr}
+            <p class="p-item">S/N:${item.nrserie} / Nr Patr:${item.nrpatr} (Qtde: ${item.qtde})
             <button class="remover" data-index="${index}">Remover</button></p>
             </div>
         `;

@@ -20,50 +20,50 @@
     <h1>Gerador de Cautela</h1>
             
     <form id="cautela-form">
-        <h3>Seus dados</h3>
+        <h3>SEUS DADOS</h3>
         <div class="line">
             <div class="input-div">
                 <label for="cautelante-subunidade" class="required">Cia/Seç por extenso</label>
-                <input type="text" id="cautelante-subunidade" required>
+                <input type="text" id="cautelante-subunidade" placeholder="ex: SEÇÃO DE TECNOLOGIA DA INFORMAÇÃO" required>
             </div>
             <div class="input-div">
                 <label for="cautelante-subunidadeAbrev" class="required">Cia/Seç abreviatura</label>
-                <input type="text" id="cautelante-subunidadeAbrev" required>
+                <input type="text" id="cautelante-subunidadeAbrev" placeholder="ex: STI" required>
             </div>
             <div class="input-div">
                 <label for="cautelante-pgnome" class="required">Responsável pela cautela</label>
-                <input type="text" id="cautelante-pgnome" required>
+                <input type="text" id="cautelante-pgnome" placeholder="ex: SD VERGOTTI" required>
             </div>
         </div>
 
-        <h3>Dados de quem cautela</h3>
+        <h3>QUEM ESTÁ CAUTELANDO</h3>
         <div class="line">
             <div class="input-div">
                 <label for="pgnome" class="required">P/G Nome</label>
-                <input type="text" id="pgnome" required>
+                <input type="text" id="pgnome" placeholder="ex: 1º TEN DAISUKE" required>
             </div>
             <div class="input-div">
                 <label for="idt">Identidade</label>
-                <input type="text" id="idt" oninput="formatarIdentidade(this)">
+                <input type="text" id="idt" placeholder="somente números" oninput="formatarIdentidade(this)">
             </div>
             <div class="input-div">
                 <label for="cpf">CPF</label>
-                <input type="text" id="cpf" oninput="formatarCPF(this)">
+                <input type="text" id="cpf" placeholder="somente números" oninput="formatarCPF(this)">
             </div>
         </div>
 
         <div class="line">
             <div class="input-div">
                 <label for="phone">Celular (somente números)</label>
-                <input type="text" id="phone">
+                <input type="text" id="phone" placeholder="somente números">
             </div>
             <div class="input-div">
                 <label for="cia" class="required">Cia/Seç</label>
-                <input type="text" id="cia" required>
+                <input type="text" id="cia" placeholder="ex: CCAP" required>
             </div>
             <div class="input-div">
                 <label for="motivo" class="required">Motivo da cautela</label>
-                <input type="text" id="motivo" required>
+                <input type="text" id="motivo" placeholder="ex: USO NA INSTRUÇÃO" required>
             </div>
         </div>
 
@@ -78,31 +78,35 @@
             </div>
         </div>
         
-        <h3>Itens da cautela</h3>
+        <h3>ITENS DA CAUTELA</h3>
         <div class="item-form">
             <div class="input-div">
-                <label for="item-tipo">Tipo do item</label>
-                <input type="text" id="item-tipo" placeholder="Ex: Notebook">
+                <label for="item-tipo">Tipo dos itens</label>
+                <input type="text" id="item-tipo" placeholder="ex: NOTEBOOK">
             </div>
             <div class="input-div">
-                <label for="item-descricao">Descrição do item</label>
-                <input type="text" id="item-descricao" placeholder="Ex: marca: Dell 15'">
+                <label for="item-descricao">Descrição do(s) item</label>
+                <input type="text" id="item-descricao" placeholder="ex: MARCA: DELL 15'">
             </div>
             <div class="input-div">
-                <label for="item-condicao">Condições do item</label>
-                <input type="text" id="item-condicao">
+                <label for="item-qtde">Quantidade</label>
+                <input type="text" id="item-qtde" placeholder="sommente números">
             </div>
             <div class="input-div">
-                <label for="item-componentes">Componentes do item</label>
-                <input type="text" id="item-componentes">
+                <label for="item-condicao">Condições do(s) item</label>
+                <input type="text" id="item-condicao" placeholder="ex: S/A ou TELA TRINCADA">
             </div>
             <div class="input-div">
-                <label for="item-nrserie">Nr de série</label>
+                <label for="item-componentes">Componentes do itens</label>
+                <input type="text" id="item-componentes" placeholder="ex: CARREGADOR, MOCHILA, HD EXTERNO">
+            </div>
+            <div class="input-div">
+                <label for="item-nrserie">Nr de série (SFC)</label>
                 <input type="text" id="item-nrserie">
             </div>
             <div class="input-div">
                 <label for="item-nrpatr">Nr de Patrimônio (apenas os 5 finais)</label>
-                <input type="text" id="item-nrpatr">
+                <input type="text" id="item-nrpatr" placeholder="se mais de um item, separar por vírgula">
             </div>
         </div>
 
