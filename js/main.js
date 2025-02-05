@@ -93,3 +93,20 @@ function gerarCautela() {
 
     gerarPDF(dadosCautela);
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const campos = ["cautelante-subunidade", "cautelante-subunidadeAbrev", "cautelante-pgnome"];
+
+    campos.forEach((campo) => {
+        const elemento = document.getElementById(campo);
+        if (elemento) {
+            // Carregar valores do localStorage ao iniciar
+            elemento.value = localStorage.getItem(campo) || "";
+
+            // Salvar no localStorage sempre que o campo for alterado
+            elemento.addEventListener("input", () => {
+                localStorage.setItem(campo, elemento.value);
+            });
+        }
+    });
+});
