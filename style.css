@@ -453,3 +453,11 @@ h3 {
 .required {
     font-size: small;
 }
+
+.rodape {
+    width: 100%;
+    text-align: center;
+    background-color: #00775b;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+}
