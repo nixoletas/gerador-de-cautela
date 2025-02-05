@@ -225,7 +225,8 @@ h3 {
 #adicionar-item {
     
     width: 6rem;
-    padding: 0.2rem;
+    padding: 0.5rem;
+    margin: auto;
     background-color: #00d4b0;
     color: #1e1e2f;
     font-size: 14px;
@@ -239,7 +240,8 @@ h3 {
 #confirmar-cautela {
     
     width: 10rem;
-    padding: 0.2rem;
+    padding: 1rem;
+    margin: auto;
     background-color: #0b438b;
     color: white;
     font-size: 14px;
