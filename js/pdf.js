@@ -171,8 +171,8 @@ async function gerarPDF(dadosCautela) {
     doc.text("Devolvido em: ____/_________/_________ Recebido por:", rectX + 5, rectY + 8);
     doc.text("Obs:", rectX + 5, rectY + 16);
 
-    // doc.save(`Cautela-${cautela.cautelanteSUAbrev}-${cautela.pgnome}`);
-    const pdfBlob = doc.output("blob");
-    const blobUrl = URL.createObjectURL(pdfBlob);
-    window.open(blobUrl, "_blank");
+    doc.save(`Cautela-${cautela.cautelanteSUAbrev}-${cautela.pgnome}`);
+    // const pdfBlob = doc.output("blob");
+    // const blobUrl = URL.createObjectURL(pdfBlob);
+    // window.open(blobUrl, "_blank");
 }
