@@ -1,7 +1,7 @@
 services:
   web:
     image: nginx:latest
-    container_name: cautela_html
+    container_name: gerador_cautela
     ports:
       - "80:80"
     volumes:
